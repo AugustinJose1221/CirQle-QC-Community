@@ -1,24 +1,4 @@
 'use strict';
-/*
-https://script.google.com/macros/s/AKfycbzZo6igg8yqCk-giZKFmcL1ZYxkQc8cwYdFC3ZlS88hKklvXPA/exec
-
-
-var $form = $('form#Join'),
-url = 'https://script.google.com/macros/s/AKfycbzZo6igg8yqCk-giZKFmcL1ZYxkQc8cwYdFC3ZlS88hKklvXPA/exec'
-
-$('#submit-form').on('click', function(e) {
-	e.preventDefault();
-	var jqxhr = $.ajax({
-		url: url,
-		method: "GET",
-		dataType: "json",
-		data: $form.serializeObject()
-	}).success(
-		"Request send"// do something
-	);
-});
-*/
-
 $.fn.serializeObject = function() {
 	var o = {};
 	var a = this.serializeArray();
