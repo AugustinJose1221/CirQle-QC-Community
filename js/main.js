@@ -25,7 +25,8 @@ $('#submit-form').on('click', function(e) {
     method: "GET",
     dataType: "json",
     data: $form.serializeObject()
-  }).success(alert("Welcome to CirQle. Thank you for being a part of our community"));
+  }).success(alert("Welcome to CirQle. Thank you for being a part of our community"),
+		$("#Name, #Email").val(""));
 });
 
 
