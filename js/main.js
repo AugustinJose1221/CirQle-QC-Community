@@ -1,4 +1,54 @@
 'use strict';
+/*
+https://script.google.com/macros/s/AKfycbzZo6igg8yqCk-giZKFmcL1ZYxkQc8cwYdFC3ZlS88hKklvXPA/exec
+
+
+var $form = $('form#Join'),
+url = 'https://script.google.com/macros/s/AKfycbzZo6igg8yqCk-giZKFmcL1ZYxkQc8cwYdFC3ZlS88hKklvXPA/exec'
+
+$('#submit-form').on('click', function(e) {
+	e.preventDefault();
+	var jqxhr = $.ajax({
+		url: url,
+		method: "GET",
+		dataType: "json",
+		data: $form.serializeObject()
+	}).success(
+		"Request send"// do something
+	);
+});
+*/
+
+$.fn.serializeObject = function() {
+	var o = {};
+	var a = this.serializeArray();
+	$.each(a, function() {
+		if (o[this.name]) {
+			if (!o[this.name].push) {
+				o[this.name] = [o[this.name]];
+			}
+			o[this.name].push(this.value || '');
+		} else {
+			o[this.name] = this.value || '';
+		}
+	});
+	return o;
+};
+
+var $form = $('form#Join'),
+    url = 'https://script.google.com/macros/s/AKfycbzZo6igg8yqCk-giZKFmcL1ZYxkQc8cwYdFC3ZlS88hKklvXPA/exec'
+
+$('#submit-form').on('click', function(e) {
+  e.preventDefault();
+  var jqxhr = $.ajax({
+    url: url,
+    method: "GET",
+    dataType: "json",
+    data: $form.serializeObject()
+  }).success(function(e){console.log(e);}
+  );
+});
+
 
 $(window).on('load', function() {
 	/*------------------
@@ -24,7 +74,7 @@ $(window).on('load', function() {
 		closedSymbol: '<i class="fa fa-angle-right"></i>',
 		openedSymbol: '<i class="fa fa-angle-down"></i>'
 	});
-	
+
 	$('.slicknav_nav').prepend('<li class="header-right-warp"></li>');
     $('.header-right').clone().prependTo('.slicknav_nav > .header-right-warp');
 
@@ -36,7 +86,7 @@ $(window).on('load', function() {
 		$(this).css('background-image', 'url(' + bg + ')');
 	});
 
-	
+
 	$('.hero-slider').owlCarousel({
 		loop: true,
 		nav: false,
@@ -48,5 +98,6 @@ $(window).on('load', function() {
 		autoplay: true
 	});
 
-})(jQuery);
 
+
+})(jQuery);

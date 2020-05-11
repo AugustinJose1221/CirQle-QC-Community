@@ -1862,8 +1862,8 @@ News Feed
 Join Section
 -----------------------*/
 
-#Join .contact-form input[type=text],
-#Join .contact-form input[type=email]{
+	.contact-form input[type=text],
+	.contact-form input[type=email]{
 	width: 50%;
 	padding: 5px;
 	border-radius: 5px;
@@ -1879,8 +1879,8 @@ Join Section
 }
 
 @media(max-width: 768px){
-	#Join .contact-form input[type=text],
-	#Join .contact-form input[type=email]{
+	.contact-form input[type=text],
+	.contact-form input[type=email]{
 		width: 100%;
 	}
 }
