@@ -26,6 +26,7 @@ $('#submit-form').on('click', function(e) {
     dataType: "json",
     data: $form.serializeObject()
   }).success(function(e){console.log(e);}
+	/*alert("Welcome to CirQle. Thank you for being a part of our community");*/
   );
 });
 
